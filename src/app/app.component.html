@@ -1,6 +1,115 @@
-<button class="bg-amber-500" (click)="isOpen = !isOpen">open/close</button>
-<div class="text-center align-middle" [@open-close]="isOpen ? 'open' : 'close'">
-  <p class="font-bold" [@open-close-text]="isOpen ? 'open' : 'close'">
+<!-- <div class="h-20 align-middle text-center">
+  <button
+    class="bg-amber-500 text-white p-2 rounded-md font-bold mt-3"
+    (click)="isOpen = !isOpen"
+  >
+    {{ isOpen ? "close" : "open" }}
+  </button>
+</div>
+<div
+  class="grid justify-center justify-items-center z-10"
+  [@open-close]="isOpen ? 'open' : 'close'"
+>
+  <div
+    class="grid-12 flex justify-center font-bold z-10 relative"
+    [@open-close-text]="isOpen ? 'open' : 'close'"
+  >
     The box is now {{ isOpen ? "Open" : "Closed" }}!
-  </p>
+  </div>
+</div>
+
+<div class="grid-12 grid justify-center mt-2 z-1">
+  <img
+    class="grid-cols-12 justify-center z-1"
+    style="height: inherit"
+    [@rotate-normal]="isRotate ? 'rotate' : 'normal'"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzuGond1_zZMmDEyCQc46YeVlQvQvtZqsgcA&s"
+    alt="halloween"
+  />
+  <button
+    class="grid-cols-12 justify-center bg-orange-600 rounded-md text-white font-semibold z-1"
+    (click)="isRotate = !isRotate"
+  >
+    rotate me
+  </button>
+</div> -->
+<!-- :enter , :leave -->
+<!-- <div class="h-72">
+  <button
+    (click)="showAirPlane = !showAirPlane"
+    class="text-white font-bold rounded-md ms-2 p-2 w-20"
+    [ngClass]="{ 'bg-red-700': !showAirPlane, 'bg-blue-700': showAirPlane }"
+  >
+    {{ showAirPlane ? "Go" : "Return" }}
+  </button>
+  <img
+    *ngIf="showAirPlane"
+    [@push-normal]
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMo5Rud96uJLb5hQ_Uk9rcgDeAucyk1yHpVA&s"
+    alt="airplaine"
+  />
+</div> -->
+<!-- ******************* keyframe() ********************* -->
+
+<!-- <div class="flex justify-center h-60">
+  <img
+    class="w-52"
+    *ngIf="showCamera"
+    @crazy-normal
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiyU75V8vR22-HpGUvGnJM3ZlivH3NUbWtvQ&s"
+    alt="nostalgia"
+  />
+</div>
+<div class="flex justify-center align-middle">
+  <button
+    (click)="showCamera = !showCamera"
+    class="bg-indigo-900 rounded-md p-3 text-white w-52"
+  >
+    {{ showCamera ? " Remove" : "take a photo" }}
+  </button>
+</div> -->
+<!-- *************** query() ************ -->
+<div
+  [@animationQuery]="contacts"
+  id="contact-card"
+  *ngFor="let contact of contacts"
+  class="grid grid-cols-12 justify-center align-middle mt-5"
+>
+  <div class="col-span-3 rounded-md"></div>
+  <div class="col-span-6 h-52 bg-red-200 rounded-md flex">
+    <img
+      class="rounded-md"
+      style="height: inherit"
+      [src]="contact.imgeSrc"
+      alt=""
+    />
+    <div class="grid-cols-1 ps-2">
+      <p class="font-bold text-sm">
+        name:
+        <span class="font-semibold text-base text-gray-700">{{
+          contact.name
+        }}</span>
+      </p>
+
+      <p class="font-bold text-sm">description:</p>
+      <p class="font-semibold text-sm text-gray-700">
+        {{ contact.description }}
+      </p>
+    </div>
+  </div>
+  <div class="col-span-3 rounded-md"></div>
+</div>
+<div class="flex justify-center mt-3">
+  <button
+    (click)="addContacts()"
+    class="bg-green-900 rounded-md p-2 font-semibold text-white"
+  >
+    show all
+  </button>
+  <button
+    (click)="removeContacts()"
+    class="bg-red-900 rounded-md p-2 ms-2 font-semibold text-white"
+  >
+    Remove
+  </button>
 </div>
