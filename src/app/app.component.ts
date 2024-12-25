@@ -16,54 +16,29 @@ const timing = '1s ease-in';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
-    trigger('open-close', [
+    trigger('blue-red', [
       state(
-        'open',
+        'blue',
         style({
-          height: '100px',
-          opacity: 1,
-          backgroundColor: 'yellow',
-        })
-      ),
-      state(
-        'close',
-        style({
-          height: 'auto',
-          opacity: 0.5,
           backgroundColor: 'blue',
         })
       ),
-      transition('open => close', animate('1s ease-in-out')),
-      transition('close => open', animate('0.5s ease-in-out')),
-    ]),
-    trigger('open-close-text', [
       state(
-        'open',
+        'red',
         style({
-          color: 'black',
+          backgroundColor: 'red',
         })
       ),
-      state(
-        'close',
-        style({
-          color: 'white',
-        })
-      ),
-      transition('open => close', animate('1s')),
-      transition('close => open', animate('0.5s')),
+      transition('blue => red', animate('2s')),
+      transition('red => blue', animate('2s')),
     ]),
-    trigger('show-hide', [
-      state('show', style({ opacity: 1, height: 'auto' })),
-      state('hide', style({ opacity: 0, height: '90px' })),
-      transition('hide => show', animate('1.5s')),
-      transition('show => hide', animate('0.5s')),
-    ]),
+
     trigger('rotate-normal', [
       state(
         'rotate',
         style({
           // transform: 'rotate(360deg)',
-          transform: 'rotateY(180deg)',
+          transform: 'rotateY(360deg)',
         })
       ),
       state(
@@ -166,7 +141,7 @@ const timing = '1s ease-in';
 })
 export class AppComponent {
   isRotate: boolean = false;
-  isOpen: boolean = false;
+  isBlue: boolean = false;
   showAirPlane: boolean = true;
   showCamera: boolean = false;
   contacts: { imgeSrc: string; name: string; description: string }[] = [

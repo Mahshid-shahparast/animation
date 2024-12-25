@@ -1,23 +1,18 @@
 <!-- <div class="h-20 align-middle text-center">
   <button
     class="bg-amber-500 text-white p-2 rounded-md font-bold mt-3"
-    (click)="isOpen = !isOpen"
+    (click)="isBlue = !isBlue"
   >
-    {{ isOpen ? "close" : "open" }}
+    change to {{ isBlue ? "Red" : "Blue" }}
   </button>
 </div>
-<div
-  class="grid justify-center justify-items-center z-10"
-  [@open-close]="isOpen ? 'open' : 'close'"
->
+<div class="grid justify-center justify-items-center z-10">
   <div
-    class="grid-12 flex justify-center font-bold z-10 relative"
-    [@open-close-text]="isOpen ? 'open' : 'close'"
-  >
-    The box is now {{ isOpen ? "Open" : "Closed" }}!
-  </div>
-</div>
-
+    class="grid-12 flex justify-center font-bold z-10 relative w-52 100 h-32 rounded-md"
+    [@blue-red]="isBlue ? 'blue' : 'red'"
+  ></div>
+</div> -->
+<!-- ********* practice ************-->
 <div class="grid-12 grid justify-center mt-2 z-1">
   <img
     class="grid-cols-12 justify-center z-1"
@@ -32,7 +27,7 @@
   >
     rotate me
   </button>
-</div> -->
+</div>
 <!-- :enter , :leave -->
 <!-- <div class="h-72">
   <button
@@ -69,7 +64,7 @@
   </button>
 </div> -->
 <!-- *************** query() ************ -->
-<div
+<!-- <div
   [@animationQuery]="contacts"
   id="contact-card"
   *ngFor="let contact of contacts"
@@ -112,4 +107,4 @@
   >
     Remove
   </button>
-</div>
+</div> -->
